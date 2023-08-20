@@ -3,6 +3,7 @@ import './main.css';
 import html2canvas from "html2canvas";
 import { saveAs } from "file-saver";
 import * as htmlToImage from 'html-to-image';
+import download from './../images/download.svg'
 
 export default function Main() {
     const [formData, setFormData] = useState({
@@ -80,13 +81,14 @@ export default function Main() {
                     onChange={handleChange}
                 />
                 <button className="form-button" onClick={getMemeImage}>Get a random Image</button>
+                <img src={download} className="download" onClick={handleDownload} />
+
             </div>
             <div id="meme" className="meme">
                 <img src={formData.randomImage} className="meme-image"/>
                 <h1 className="meme-text top-text">{formData.topText}</h1>
                 <h1 className="meme-text bottom-text">{formData.bottomText}</h1>
             </div>
-            <button onClick={handleDownload}>Download Image</button>
         </main>
     )
 }
